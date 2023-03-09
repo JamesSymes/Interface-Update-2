@@ -1,0 +1,32 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import recruiter from "../data/recruiter.json";
+import "~/styles/list.css";
+---
+
+<SiteLayout title="Recruiter" description="Alle individuellen Recruiter">
+  <div id="listContainer">
+    {
+      recruiter.map((json: any) => (
+        <div class="listElement">
+          <img
+            class="avatarImage listLineElement"
+            src="/images/emptyAvatar.jpg"
+          />
+          <a
+            class="recruiterNameField listLineElement"
+            href={"/recruiter/" + json.name}
+          >
+            {json.name}
+          </a>
+          <a
+            class="recruiterCompanyField listLineElement"
+            href={"/firmen/" + json.company}
+          >
+            {json.company}
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</SiteLayout>

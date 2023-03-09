@@ -1,0 +1,28 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import firma from "../data/companys.json";
+import "~/styles/list.css";
+---
+
+<SiteLayout title="firma" description="Alle individuellen Firmen">
+  <div id="listContainer">
+    {
+      firma.map((json: any) => (
+        <div class="listElement">
+          <img src="/images/emptyAvatar.jpg" class="avatarImage" />
+          <a class="listTitle" href={"firmen/" + json.name}>
+            {json.name}
+          </a>
+          {json.places}
+          <a class="listTitle" href={"firmen/" + json.company}>
+            {json.company}
+          </a>
+          {json.city}
+          
+          Letztes Update: {json.lastUpdated}
+          
+        </div>
+      ))
+    }
+  </div>
+</SiteLayout>

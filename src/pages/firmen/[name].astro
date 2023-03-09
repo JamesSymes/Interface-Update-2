@@ -1,0 +1,33 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import companysJson from "../../data/companys.json";
+import "~/styles/detail.css";
+
+export async function getStaticPaths() {
+  let returnArray: any = [];
+
+  companysJson.forEach((element) => {
+    returnArray.push({ params: { name: element.name } });
+  });
+
+  return returnArray;
+}
+
+const { name } = Astro.params;
+let company:any = companysJson.find((companysJson) => companysJson.name == name);
+console.log(company);
+---
+
+<SiteLayout title="Home Page" description="This is the homepage">
+  <div id="companysDetailContainer">
+    <div style="display: flex; flex-direction: column; width:100%">
+      <a class="companysListTitle" href={"/firmen/" + company.name}>
+        {company.name}
+      </a>
+      <span class="companysListTitle">
+        {company.places}
+      </span>
+      <span>{company.website}</span>
+    </div>
+  </div>
+</SiteLayout>

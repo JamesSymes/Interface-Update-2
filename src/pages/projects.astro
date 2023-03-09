@@ -1,0 +1,32 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import projects from "../data/projects.json";
+import "~/styles/list.css";
+---
+
+<SiteLayout title="projects" description="Alle individuellen Projekte">
+  <div id="listContainer">
+    {
+      projects.map((json: any) => (
+        <div class="listElement">
+          <a
+            class="nameElement listLineElement"
+            href={"/projects/" + json.projectNumber}
+          >
+          {json.title}
+          </a>
+
+          <a
+            class="numberField listLineElement"
+            href={"/firmen/" + json.company}
+          >
+          {json.company}
+          </a>
+          
+
+
+        </div>
+      ))
+    }
+  </div>
+</SiteLayout>

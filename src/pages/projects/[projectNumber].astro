@@ -1,0 +1,40 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import projectsJson from "../../data/projects.json";
+import "~/styles/detail.css";
+
+export async function getStaticPaths() {
+  let returnArray: any = [];
+
+  projectsJson.forEach((element) => {
+    returnArray.push({ params: { projectNumber: element.projectNumber } });
+  });
+
+  return returnArray;
+}
+
+const { projectNumber } = Astro.params;
+let project:any = projectsJson.find((projectsJson) => projectsJson.projectNumber == projectNumber);
+console.log(project);
+---
+
+<SiteLayout title="Home Page" description="This is the homepage">
+  <div id="projectsDetailContainer">
+    <div style="display: flex; flex-direction: column; width:100%">
+      <span class="listTitle">
+        {project.title}
+      </span>
+      <a class="listTitle" href={"/firmen/" + project.company}>
+        {project.company}
+      </a>
+      <span>{project.startDate}</span>
+      <span>{project.projectDuration}</span>
+      <span>{project.jobTasks}</span>
+      <span>{project.myqualifications}</span>
+      <span>{project.myBenefits}</span>
+      <span>{project.contactPerson}</span>
+      <span>{project.contactEmail}</span>
+      <a>Letztes Update: {project.seenDate}</a>
+    </div>
+  </div>
+</SiteLayout>

@@ -1,0 +1,33 @@
+---
+import type { NavItem } from "~/types";
+import logo from '/images/logo.png'; 
+
+const navItems: Array<NavItem> = [
+  { title: "Projekte", url: "projects" },
+  { title: "Recruiter", url: "recruiter" },
+  { title: "Firmen", url: "firmen" },
+];
+---
+
+<nav class="navbar">
+  <img
+    class="menu-logo-symbol tw-max-w-[64px] md:tw-max-w-none"
+    src={logo}
+    alt="RecruiterLogo"
+    height="100%"
+  />
+
+
+  <ul>
+    {
+      navItems.map(({ title, url }) => (
+        <li>
+          <a href={"/" + url}>{title}</a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="filler"></div>
+
+</nav>

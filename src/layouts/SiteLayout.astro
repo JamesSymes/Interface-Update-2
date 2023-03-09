@@ -1,0 +1,47 @@
+---
+import Navbar from "~/components/Navbar.astro";
+import Footer from "~/components/Footer.astro";
+import "~/styles/index.css";
+
+const { generator, site } = Astro;
+const { title, description, placesList } = Astro.props;
+const image = new URL("social.jpg", site);
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <meta name="generator" content={generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- social media -->
+    <meta property="og:title" content="IT-Recruiter in Deutschland" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={site} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+
+  <div class="wrapper">
+    <Navbar />
+
+    <article class="content">
+      <slot>
+        <p>This is my fallback content, if there is no child passed into slot</p>
+      </slot>
+    </article>
+    
+
+
+
+    <Footer />
+  </div>
+
+
+</html>
