@@ -1,90 +1,182 @@
+/* define CSS variables */
+/* :root {
+  --primary-color: #003a6d;
+  --secondary-color: #cfd8dc;
+  --light-color: #e0f7fa; 
+  --dark-color: #003a6d;
+  --primary-font: "Open Sans", Helvetica, sans-serif;
+} */
+
 html {
-  font-family: "Open Sans", Helvetica, sans-serif;
-  line-height: 1.7em;
+  font-family: Arial;
+  line-height: 1.8em;
+  color: #003a6d;
 }
 
 body {
-  padding: 0px;
-  margin: 0px;
-  background-color: #ecedee;
+  padding: 0;
+  margin: 0;
+  background-color: #EEF1FA;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
-
 
 
 /* NAVBAR */
 
 .navbar {
-  background-color: lightgray;
+  background-color: #003a6d;
   display: flex;
-  height: 50px;
+  height: 80px;
+  align-items: center;
+  color: white;
+  justify-content: space-between;
+  padding: 0 20%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 .navbar ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
-  margin: 0px;
   list-style: none;
+  padding: 0;
+  gap: 20px;
+  margin: 0 20px;
 }
 
 .navbar li {
-  line-height: 50px;
+  line-height: 80px;
 }
 
 .navbar a {
   text-decoration: none;
-  color: unset;
+  color: white;
   text-align: center;
-  vertical-align: middle;
 }
 
 .navbar .filler {
-  flex-grow: 1
+  flex-grow: 1;
 }
 
+.navbar a:hover {
+  color: #cfd8dc;
+  transition: color 0.3s ease-in-out;
+}
 
 /* CONTENT */
 
-.content {
-  margin-left: 30px;
-}
+/.content {
+  flex: 1 0 auto;
+  flex-grow: 1;
+  /* margin: 40px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 900px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); */
+} 
 
 /* FOOTER */
 
 .footer {
+  margin-top: 75px;
+  flex-shrink: 0;
   width: 100%;
-  margin-top: 50px;
-  height: 50px;
-  background-color: lightgray;
+  height: 80px;
+  background-color: #003a6d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: 500px) {
-  .wrapper {
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
 
-    max-width: 700px;
-    margin-right: auto;
-    margin-left: auto;
-  }
 
+
+/* Media Query for larger screens */
+@media (min-width: 768px) {
   .navbar {
     margin-bottom: 30px;
-    text-transform: uppercase;
   }
 
   .navbar ul {
-    display: flex;
     flex-direction: row;
+    gap: 15px;
   }
 
-
   .navbar li {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0 15px;
   }
 
   .navbar li:hover {
-    background-color: #ecedee;
+    background-color: #cfd8dc;
   }
 
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+.navbar-search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 200px;
+}
+
+.navbar-search-input {
+  padding: 0.5rem;
+  padding-right: 2rem; /* Make room for the button inside the input */
+  width: 100%;
+  border: 1px solid;
+  border-color: #003a6d;
+  border-radius: 20px; /* Increase border-radius for rounded edges */
+  outline: none; /* Remove focus outline */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add shadow for 3D effect */
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar-search-input:focus {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15); /* Change shadow on focus */
+}
+
+.navbar-search-button {
+  position: absolute;
+  right: 0.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+
+
+
+#pageHeader {
+  font-family: Arial;
+  line-height: 20px;
+  color: #003a6d;
+  text-align: center; /* Center the text */
+  font-size: 32px; /* Increase font size */
+  font-weight: bold; /* Make it bold */
+  letter-spacing: -0.5px; /* Reduce space between letters for modern look */
+  padding-top: 20px; /* Add padding to top to give it some space from other elements */
+  padding-bottom: 20px; /* Add padding to bottom to give it some space from other elements */
 }

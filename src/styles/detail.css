@@ -1,9 +1,112 @@
-#detailContainer {
+#recruiterDetailContainer {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 80%; /* Adjust to fit your layout */
+    margin: 0 auto;
+}
+
+#recruiterDetailContainer:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#recruiterDetailContainer:active {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .avatarImage {
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    align-self: center; /* Center the image */
 }
+
+
+.recruiterInfo {
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: Arial;
+    color: #333;
+    margin-bottom: 0.2rem;
+    text-align: center; /* Center the text */
+    width: 100%; /* Full width to center the text */
+}
+
+.recruiterInfo:visited {
+    color: #333;
+}
+
+.recruiterInfo.title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.recruiterInfo.link {
+    color: #7F7F7F;
+}
+
+.recruiterContactInfo {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.lastUpdatedInfo {
+    font-size: 0.8rem;
+    color: #7F7F7F;
+    align-self: flex-end;
+}
+
+
+    @media (min-width: 768px) {
+        #recruiterDetailContainer {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    
+        .leftInfoContainer {
+            flex: 0.3;  /* Adjusted from 1 to 0.3 */
+            margin-right: 1rem;
+            border-right: 1px solid #dbdbdb;
+            padding-right: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .rightInfoContainer {
+            flex: 0.7;  /* Adjusted from 1 to 0.7 */
+            padding-left: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    
+
+.recruiterInfoHeader {
+    font-weight: bold;
+    color: #333;
+    padding-right: 0.5rem;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table td {
+    border-bottom: 1px solid #dbdbdb; /* Thin faded line */
+    padding: 0.5rem 0;
+  }
+  
+  table td:first-child {
+    width: 25%;
+  }
+  

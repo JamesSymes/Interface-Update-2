@@ -1,70 +1,140 @@
-a {
-    color: #333;
-}
-
-a:hover {
-    color: black;
-}
-
+/* :root {
+    --primary-color: #333;
+    --hover-color: #000;
+    --secondary-color: #dbdbdb;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --light-shadow: 0 4px 6px var(--shadow-color);
+    --medium-shadow: 0 5px 15px var(--shadow-color);
+    --active-shadow: 0 1px 3px var(--shadow-color);
+    --main-font: 'Roboto', Helvetica, Arial, sans-serif;
+    --gap-size: 3%; 
+    --avatar-size: 3rem;
+    --container-size: 200px;
+    --container-padding: 1rem;
+} */
 
 #listContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 3%;
+    justify-content: center;
+    align-items: start;
+    margin: 0 auto 75px auto;
+    width: 80%;
+    box-sizing: border-box;
 }
 
+
+
+/* Profile Container */
 .listElement {
     display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    height: 50px;
-    padding: 20px;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 3px;
 }
-
 
 .avatarImage {
-    height: 100px;
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
-
-.listLineElement {
+.listLineElement, .listLineElementCompany {
     text-decoration: none;
-    font-size: 14px;
-    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-family: Arial;
     text-align: center;
+    margin-top: 1rem;
+}
+
+.listLineElementCompany{
+    color: #7F7F7F;
+    margin-top: 1px;
+    margin-bottom: 10px;
 }
 
 .numberField {
     margin-left: auto;
-    margin-right: 10px;
+    margin-right: 1rem;
 }
-
 
 .listTitle:visited {
-    color: black;
+    color: #333;
 }
 
-@media (min-width: 500px) {
 
-    .listElement {
-        border-color: gray;
-        box-shadow: 0 4px 6px rgb(0, 0, 0, 0.2);
-        border: 1px #dbdbdb solid;
-        width: 500px;
+
+
+
+
+
+
+.navbar-search-form-recruiter {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 80%; /* Increase the width to 80% of the page */
+    max-width: none;
+    margin: 0 auto;
+    padding: 25px 0;
+}
+
+.navbar-search-input-recruiter {
+    position: relative;
+    padding: 0.8rem; /* Increase padding */
+    padding-right: 2.5rem; /* Make room for the button inside the input */
+    width: 100%;
+    border: 1px solid #ccc; /* Border color to match the profile container */
+    border-radius: 3px; /* Border radius to match the profile container */
+    outline: none;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Box-shadow to match the profile container */
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar-search-input-recruiter:focus {
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-search-button-recruiter {
+    position: absolute;
+    right: 0.8rem; /* Adjust to match the padding */
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+
+  
+  
+
+
+@media (min-width: 768px) {
+    #listContainer {
+        grid-template-columns: repeat(4, 1fr);
     }
 
-    
+    .listElement {
+        border-color: #dbdbdb;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+    }
+
     .listElement:hover {
-        border-color: gray;
-        box-shadow: 0 5px 15px rgb(0, 0, 0, 0.2);
+        border-color: #dbdbdb;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
 
     .listElement:active {
-        border-color: gray;
-        box-shadow: 0 1px 3px rgb(0, 0, 0, 0.2);
+        border-color: #dbdbdb;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
-
-
 }

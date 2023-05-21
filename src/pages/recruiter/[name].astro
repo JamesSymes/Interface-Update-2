@@ -17,20 +17,56 @@ const { name } = Astro.params;
 let recruiter = recruiterSingle.find((json) => json.name == name);
 console.log(recruiter);
 ---
-
 <SiteLayout title="Home Page" description="This is the homepage">
   <div id="recruiterDetailContainer">
-    <img src="/images/emptyAvatar.jpg" class="avatarImage" />
-    <div style="display: flex; flex-direction: column; width:100%">
-      <a class="listTitle" href={"/recruiter/" + recruiter.name}>
-        {recruiter.name}
-      </a>
-      {recruiter.title}
-      <a class="listTitle" href={"/firmen/" + recruiter.company}>
-        {recruiter.company}
-      </a>
-      <a>{recruiter.city}</a>
-      <a>Letztes Update: {recruiter.lastUpdated}</a>
+    <div class="leftInfoContainer">
+      <img src="/images/emptyAvatar.jpg" class="avatarImage" />
     </div>
+    <div class="rightInfoContainer">
+      <table>
+        <tr>
+          <td class="recruiterInfoHeader">Name:</td>
+          <td>
+            <a class="recruiterInfo title" href={"/recruiter/" + recruiter.name}>
+              {recruiter.name}
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td class="recruiterInfoHeader">Company:</td>
+          <td>
+            <a class="recruiterInfo link" href={"/firmen/" + recruiter.company}>
+              {recruiter.company}
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td class="recruiterInfoHeader">Title:</td>
+          <td>
+            <a class="recruiterInfo">{recruiter.title}</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="recruiterInfoHeader">City:</td>
+          <td>
+            <a class="recruiterInfo">{recruiter.city}</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="recruiterInfoHeader">Phone:</td>
+          <td>
+            <a class="recruiterInfo recruiterContactInfo">{recruiter.phone}</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="recruiterInfoHeader">Email:</td>
+          <td>
+            <a class="recruiterInfo recruiterContactInfo">{recruiter.email}</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <a class="lastUpdatedInfo">Letztes Update: {recruiter.lastUpdated}</a>
   </div>
 </SiteLayout>
+

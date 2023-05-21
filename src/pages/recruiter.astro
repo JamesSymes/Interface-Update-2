@@ -5,28 +5,48 @@ import "~/styles/list.css";
 ---
 
 <SiteLayout title="Recruiter" description="Alle individuellen Recruiter">
+  <h2 id=pageHeader>Recruiters</h2>
+
+<!-- Search form Recruiters -->
+<form action="/searchRecruiter" method="GET" class="navbar-search-form-recruiter">
+  <input type="text" name="q" placeholder="Search..." class="navbar-search-input-recruiter" />
+  <button type="submit" class="navbar-search-button-recruiter">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#808080" width="20" height="20">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+  </button>
+</form>
+
+
+
   <div id="listContainer">
     {
       recruiter.map((json: any) => (
-        <div class="listElement">
-          <img
-            class="avatarImage listLineElement"
-            src="/images/emptyAvatar.jpg"
-          />
-          <a
-            class="recruiterNameField listLineElement"
-            href={"/recruiter/" + json.name}
-          >
-            {json.name}
-          </a>
-          <a
-            class="recruiterCompanyField listLineElement"
-            href={"/firmen/" + json.company}
-          >
-            {json.company}
-          </a>
+        <div 
+          class="#listElement" 
+          onClick={() => window.location.href=`/recruiter/${json.name}`}
+        >
+          <div class="listElement">
+            <img
+              class="avatarImage listLineElement"
+              src="/images/emptyAvatar.jpg"
+            />
+            <a
+              class="recruiterNameField listLineElement"
+              href={"/recruiter/" + json.name}
+            >
+              {json.name}
+            </a>
+            <a
+              class="recruiterCompanyField listLineElementCompany"
+              href={"/firmen/" + json.company}
+            >
+              {json.company}
+            </a>
+          </div>
         </div>
       ))
     }
   </div>
 </SiteLayout>
+
